@@ -1,0 +1,380 @@
+/* =============================================
+   VARIÁVEIS E RESET
+   ============================================= */
+:root {
+    --vermelho:        #c0392b;
+    --vermelho-escuro: #922b21;
+    --vermelho-claro:  #fadbd8;
+    --cinza-escuro:    #2c3e50;
+    --cinza-medio:     #7f8c8d;
+    --cinza-claro:     #f4f6f7;
+    --branco:          #ffffff;
+    --sombra:          0 4px 20px rgba(0,0,0,.10);
+    --sombra-forte:    0 8px 30px rgba(0,0,0,.18);
+    --radius:          12px;
+    --radius-sm:       8px;
+    --transicao:       all .25s ease;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background-color: var(--cinza-claro);
+    color: var(--cinza-escuro);
+    font-size: 15px;
+    line-height: 1.6;
+}
+
+a { color: var(--vermelho); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* =============================================
+   BADGES DE STATUS
+   ============================================= */
+.badge-normal  { background:#d5f5e3; color:#1e8449; font-size:12px; padding:3px 10px; border-radius:20px; font-weight:600; }
+.badge-avencer { background:#fef9e7; color:#b7950b; font-size:12px; padding:3px 10px; border-radius:20px; font-weight:600; }
+.badge-vencido { background:#fadbd8; color:#c0392b; font-size:12px; padding:3px 10px; border-radius:20px; font-weight:600; }
+
+/* =============================================
+   PÁGINAS DE LOGIN
+   ============================================= */
+.login-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    padding: 20px;
+}
+
+.login-card {
+    background: var(--branco);
+    border-radius: var(--radius);
+    box-shadow: var(--sombra-forte);
+    width: 100%;
+    max-width: 420px;
+    overflow: hidden;
+}
+
+.login-header {
+    background: var(--vermelho);
+    padding: 32px 36px 28px;
+    text-align: center;
+    color: var(--branco);
+}
+
+.login-header .icone-logo {
+    font-size: 48px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.login-header h1 {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 4px;
+}
+
+.login-header p {
+    font-size: 13px;
+    opacity: .85;
+}
+
+.login-admin .login-header {
+    background: var(--cinza-escuro);
+}
+
+.login-body {
+    padding: 32px 36px;
+}
+
+.login-body .form-label {
+    font-weight: 600;
+    font-size: 13px;
+    color: var(--cinza-escuro);
+    margin-bottom: 5px;
+}
+
+.login-body .form-control {
+    border: 1.5px solid #ddd;
+    border-radius: var(--radius-sm);
+    padding: 10px 14px;
+    font-size: 14px;
+    transition: var(--transicao);
+}
+
+.login-body .form-control:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+    outline: none;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    border-radius: var(--radius-sm);
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transicao);
+    margin-top: 8px;
+}
+
+.btn-login:hover { background: var(--vermelho-escuro); }
+
+.login-admin .btn-login { background: var(--cinza-escuro); }
+.login-admin .btn-login:hover { background: #1a252f; }
+.login-admin .login-body .form-control:focus {
+    border-color: var(--cinza-escuro);
+    box-shadow: 0 0 0 3px rgba(44,62,80,.12);
+}
+
+.login-footer {
+    text-align: center;
+    padding: 0 36px 28px;
+    font-size: 13px;
+    color: var(--cinza-medio);
+}
+
+.alerta-erro {
+    background: var(--vermelho-claro);
+    border-left: 4px solid var(--vermelho);
+    color: var(--vermelho-escuro);
+    padding: 10px 14px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+/* =============================================
+   TELA 2FA
+   ============================================= */
+.codigo-2fa {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin: 12px 0;
+}
+
+.codigo-2fa input {
+    width: 48px;
+    height: 56px;
+    text-align: center;
+    font-size: 22px;
+    font-weight: 700;
+    border: 2px solid #ddd;
+    border-radius: var(--radius-sm);
+    transition: var(--transicao);
+}
+
+.codigo-2fa input:focus {
+    border-color: var(--vermelho);
+    box-shadow: 0 0 0 3px rgba(192,57,43,.12);
+    outline: none;
+}
+
+/* =============================================
+   SIDEBAR / LAYOUT PRINCIPAL
+   ============================================= */
+.wrapper { display: flex; min-height: 100vh; }
+
+.sidebar {
+    width: 240px;
+    min-width: 240px;
+    background: var(--cinza-escuro);
+    color: var(--branco);
+    display: flex;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.sidebar-logo {
+    padding: 24px 20px 16px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo .logo-icon {
+    background: var(--vermelho);
+    width: 40px; height: 40px;
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.sidebar-logo span {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.3;
+}
+
+.sidebar-menu { padding: 16px 0; flex: 1; }
+
+.sidebar-menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 20px;
+    color: rgba(255,255,255,.75);
+    font-size: 14px;
+    font-weight: 500;
+    transition: var(--transicao);
+    text-decoration: none;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.ativo {
+    background: rgba(255,255,255,.08);
+    color: var(--branco);
+    text-decoration: none;
+}
+
+.sidebar-menu a.ativo { border-left: 3px solid var(--vermelho); }
+.sidebar-menu a i { font-size: 18px; width: 22px; }
+
+.sidebar-usuario {
+    padding: 16px 20px;
+    border-top: 1px solid rgba(255,255,255,.1);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13px;
+}
+
+.sidebar-usuario .avatar {
+    width: 34px; height: 34px;
+    background: var(--vermelho);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.conteudo {
+    flex: 1;
+    padding: 28px;
+    overflow-x: hidden;
+}
+
+/* =============================================
+   CARDS DO DASHBOARD
+   ============================================= */
+.stat-card {
+    background: var(--branco);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    box-shadow: var(--sombra);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.stat-card .stat-icon {
+    width: 52px; height: 52px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+}
+
+.stat-card .stat-num { font-size: 28px; font-weight: 700; line-height: 1; }
+.stat-card .stat-label { font-size: 13px; color: var(--cinza-medio); margin-top: 2px; }
+
+.bg-vermelho   { background: var(--vermelho-claro); color: var(--vermelho); }
+.bg-verde      { background: #d5f5e3; color: #1e8449; }
+.bg-amarelo    { background: #fef9e7; color: #b7950b; }
+.bg-azul       { background: #d6eaf8; color: #1a5276; }
+
+/* =============================================
+   TABELA DE EXTINTORES
+   ============================================= */
+.tabela-card {
+    background: var(--branco);
+    border-radius: var(--radius);
+    box-shadow: var(--sombra);
+    overflow: hidden;
+}
+
+.tabela-card .tabela-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid #eee;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tabela-card h5 { font-size: 16px; font-weight: 700; margin: 0; }
+
+.tabela-card table { width: 100%; border-collapse: collapse; }
+.tabela-card th {
+    background: var(--cinza-claro);
+    padding: 12px 16px;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+    color: var(--cinza-medio);
+    text-align: left;
+}
+
+.tabela-card td {
+    padding: 13px 16px;
+    font-size: 14px;
+    border-bottom: 1px solid #f0f0f0;
+    vertical-align: middle;
+}
+
+.tabela-card tr:last-child td { border-bottom: none; }
+.tabela-card tr:hover td { background: #fafafa; }
+
+/* =============================================
+   BOTÕES GERAIS
+   ============================================= */
+.btn-vermelho {
+    background: var(--vermelho);
+    color: var(--branco);
+    border: none;
+    padding: 8px 18px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.btn-vermelho:hover { background: var(--vermelho-escuro); color: var(--branco); text-decoration: none; }
+
+.btn-outline {
+    background: transparent;
+    color: var(--cinza-escuro);
+    border: 1.5px solid #ddd;
+    padding: 7px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    text-decoration: none;
+}
+
+.btn-outline:hover { border-color: var(--vermelho); color: var(--vermelho); text-decoration: none; }
