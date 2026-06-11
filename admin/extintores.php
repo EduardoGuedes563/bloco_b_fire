@@ -24,8 +24,9 @@ if ($filtroPavimento) {
     $params[':pavimento'] = $filtroPavimento;
 }
 if ($filtroBusca) {
-    $where[]           = '(codigo LIKE :busca OR localizacao LIKE :busca)';
-    $params[':busca']   = "%$filtroBusca%";
+    $where[]              = '(codigo LIKE :busca1 OR localizacao LIKE :busca2)';
+    $params[':busca1']    = "%$filtroBusca%";
+    $params[':busca2']    = "%$filtroBusca%";
 }
 
 $sql = "SELECT * FROM extintores WHERE " . implode(' AND ', $where) . " ORDER BY pavimento, codigo";
